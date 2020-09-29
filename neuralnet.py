@@ -1,7 +1,7 @@
 import numpy as np
 import scipy.special
 import random
-from defs import *
+from values import *
 
 
 class Nnet:
@@ -54,7 +54,7 @@ class Nnet:
             int(total_entries * MUTATION_ARRAY_MIX_PERC)
         idx = np.random.choice(np.arange(total_entries),
                                num_to_take, replace=False)
-        print('index:', idx)
+        # print('index:', idx)
 
         res = np.random.rand(num_rows, num_cols)
 

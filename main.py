@@ -1,6 +1,6 @@
 import pygame
-from defs import *
-from pipe import PipeCollection
+from values import *
+from hurdles import PipeCollection
 from bird import BirdCollection
 
 
@@ -27,7 +27,7 @@ def update_data_labels(gameDisplay, dt, game_time, num_iterations, num_alive, fo
 def run_game():
     pygame.init()
     gameDisplay = pygame.display.set_mode((DISPLAY_W, DISPLAY_H))
-    pygame.display.set_caption("learn to fly")
+    pygame.display.set_caption("Fly madafack")
 
     running = True
     backgroundImg = pygame.image.load(BG_FILENAME)

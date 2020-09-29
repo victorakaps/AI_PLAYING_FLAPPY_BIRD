@@ -1,6 +1,6 @@
 import pygame
 import random
-from defs import *
+from values import *
 
 
 class Pipe():

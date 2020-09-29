@@ -1,8 +1,8 @@
 import pygame
 import random
 import numpy as np
-from defs import *
-from nnet import Nnet
+from values import *
+from neuralnet import Nnet
 
 
 class Bird():
@@ -146,14 +146,14 @@ class BirdCollection():
 
         new_birds = []
 
-        idx_bad_to_take = np.random.choice(np.arrange(
+        idx_bad_to_take = np.random.choice(np.arange(
             len(bad_birds)), num_bad_to_take, replace=False)
 
         for index in idx_bad_to_take:
             new_birds.append(bad_birds[index])
 
         new_birds.extend(good_birds)
-        children_neede = len(self.birds) - len(new_birds)
+        children_needed = len(self.birds) - len(new_birds)
 
         while len(new_birds) < len(self.birds):
             idx_to_breed = np.random.choice(
@@ -163,5 +163,7 @@ class BirdCollection():
                     good_birds[idx_to_breed[0]], good_birds[idx_to_breed[1]], self.gameDisplay)
                 if random.random() < MUTATION_MODIFY_CHANCE_LIMIT:
                     new_bird.nnet.modify_weights()
-
-        self.create_new_generation()
+                new_birds.append(new_bird)
+        for b in new_birds:
+            b.reset()
+        self.birds = new_birds
